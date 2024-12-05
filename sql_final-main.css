@@ -1,0 +1,64 @@
+* {
+  /* 全局設置 */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw; /* 確保寬度等於視窗寬度 */
+  height: 100vh; /* 確保高度等於視窗高度 */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 調整內容分佈 */
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  width: 100%; /* 占滿視窗寬度 */
+  background-color: #f3efdd;
+  padding: 30px;
+  color: #bb9a88;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 1px red; */
+  width: 100%; /* 占滿視窗寬度 */
+  flex-grow: 1; /* 自適應高度 */
+}
+
+.home-page .w1 {
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.home-page .w2 {
+  font-size: large;
+  margin: 20px;
+  font-weight: 600;
+}
+
+.home-page > div > button {
+  background-color: #e3ebeb;
+  padding: 10px 20px;
+  font-size: 18px;
+  justify-content: space-between;
+  border-radius: 8px;
+  margin: 10px 15px;
+  cursor: pointer;
+  border: solid 1px;
+}
+
+footer {
+  text-align: center;
+  width: 100%; /* 占滿視窗寬度 */
+  background-color: #f3efdd;
+  padding: 30px;
+  color: #bb9a88;
+}
