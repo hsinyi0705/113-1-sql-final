@@ -15,7 +15,7 @@
             </div>
         </header>
 
-        <div class="client_manage-page">
+        <div class="manage-page">
             <form method="get" action="">
                 <p class="w1">客戶瀏覽與搜尋</p>
                             
