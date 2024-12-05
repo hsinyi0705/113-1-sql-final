@@ -66,6 +66,14 @@ header .left button {
   margin-bottom: 30px;
 }
 
+.manage-page .w3 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  /* border: solid 1px red; */
+}
+
 .manage-page label {
   font-size: large;
   font-weight: 600;
@@ -75,6 +83,15 @@ header .left button {
   padding: 10px;
   width: 500px;
   font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.manage-page select {
+  padding: 10px;
+  width: 500px;
+  font-size: 12px;
+  /* font-size: 15px; */
   margin-top: 10px;
   margin-bottom: 25px;
 }
