@@ -49,7 +49,7 @@ header .left button {
   border: none;
 }
 
-.client_manage-page {
+.manage-page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /*靠上對齊*/
@@ -60,18 +60,18 @@ header .left button {
   padding: 50px;
 }
 
-.client_manage-page .w1 {
+.manage-page .w1 {
   font-size: 35px;
   font-weight: 800;
   margin-bottom: 30px;
 }
 
-.client_manage-page label {
+.manage-page label {
   font-size: large;
   font-weight: 600;
 }
 
-.client_manage-page input {
+.manage-page input {
   padding: 10px;
   width: 500px;
   font-size: 12px;
@@ -79,7 +79,7 @@ header .left button {
   margin-bottom: 25px;
 }
 
-.client_manage-page button {
+.manage-page button {
   background-color: #e3ebeb;
   padding: 10px 20px;
   font-size: 18px;
