@@ -20,7 +20,7 @@
                 <button onclick="window.location.href='product_manage.php';">產品管理</button>
                 <button onclick="window.location.href='order_manage.php';">訂單管理</button>
                 <button onclick="window.location.href='sale_manage.php';">銷售報表</button>
-                <button onclick="window.location.href='logout.php';">登出</button>
+                <button onclick="window.location.href='sql_final-main.php';">登出</button>
             </div>
             
             <!-- 如果是管理者才顯示 -->
