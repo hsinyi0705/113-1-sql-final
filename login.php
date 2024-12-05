@@ -29,7 +29,7 @@
                 <label for="input_search">密碼：</label><br>
                 <input type="text" name="login_password"><br>
                 
-                <button onclick="window.location.href='admin_login_page.php';">登入</button>
+                <button onclick="window.location.href='success_login_page.php';">登入</button>
             </form>    
         </div>
         
