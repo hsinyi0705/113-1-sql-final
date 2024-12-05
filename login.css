@@ -1,0 +1,103 @@
+* {
+  /* 全局設置 */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw; /* 確保寬度等於視窗寬度 */
+  height: 100vh; /* 確保高度等於視窗高度 */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 調整內容分佈 */
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  width: 100%; /* 占滿視窗寬度 */
+  background-color: #f3efdd;
+  padding: 30px;
+  color: #bb9a88;
+
+  /* 使用 flexbox 讓 .left 和 .right 分開對齊 */
+  display: flex;
+  justify-content: center; /* 中心對齊 */
+  align-items: center; /* 垂直居中 */
+  position: relative; /* 為了讓左右按鈕位置相對於header */
+}
+
+header h1 {
+  text-align: center;
+}
+
+header .left {
+  position: absolute; /* 讓按鈕位置固定 */
+  left: 20px;
+}
+
+header .right {
+  position: absolute; /* 讓按鈕位置固定 */
+  right: 20px;
+}
+
+header .left button,
+header .right button {
+  background-color: #9bb9d633;
+  /* background-color: #f9f9f9; */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 1px red; */
+  width: 100%; /* 占滿視窗寬度 */
+  flex-grow: 1; /* 自適應高度 */
+}
+
+.login-page .w1 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.login-page label {
+  font-size: large;
+  font-weight: 600;
+}
+
+.login-page input {
+  padding: 10px;
+  width: 500px;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.login-page button {
+  background-color: #e3ebeb;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  margin: 10px 210px;
+  cursor: pointer;
+  border: solid 1px;
+}
+
+footer {
+  text-align: center;
+  width: 100%; /* 占滿視窗寬度 */
+  background-color: #f3efdd;
+  padding: 30px;
+  color: #bb9a88;
+}
