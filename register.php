@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ClassicModels 管理系統</title>
-        <link rel="stylesheet" href="register.css">
+        <link rel="stylesheet" href="login_register.css">
     </head>
     
     <body>
@@ -19,7 +19,7 @@
             </div>
         </header>
 
-        <div class="register-page">
+        <div class="login-page">
             <form method="get" action="">
                 <p class="w1">註冊</p>
                             
