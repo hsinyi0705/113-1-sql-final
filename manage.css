@@ -108,6 +108,10 @@ header .left button {
   border: solid 1px;
 }
 
+.manage-page .back {
+  margin: 20px 0;
+}
+
 .manage-page table {
   margin-top: 10px;
   border-collapse: collapse; /* 合併邊框 */

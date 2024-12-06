@@ -44,11 +44,11 @@
                 <tbody>
                     <?php while ($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
-                            <td><?= htmlspecialchars($row['productCode']) ?></td>
+                            <td><?= htmlspecialchars($row['productCode']) ?></td>  <!-- KEY -->
                             <td><?= htmlspecialchars($row['productName']) ?></td>
                             <td><?= htmlspecialchars($row['productLine']) ?></td>
                             <td><?= htmlspecialchars($row['buyPrice']) ?></td>
-                            <td>查看詳細</td>
+                            <td><a href="product_detail.php?productCode=<?= urlencode($row['productCode']) ?>">查看詳細</a></td>
                         </tr>
                     <?php endwhile; ?>                        
                 </tbody>
