@@ -108,9 +108,31 @@ header .left button {
   border: solid 1px;
 }
 
+.manage-page table {
+  margin-top: 50px;
+  border-collapse: collapse; /* 合併邊框 */
+  width: 100%;
+  border: solid 2px #979d6e; /* 外框線 */
+}
+
+.manage-page th {
+  /* background-color: #979d6e; */
+  background-color: #cac6bd;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border: solid 1px #000; /* 內框線 */
+}
+
+.manage-page td {
+  text-align: left;
+  padding: 10px;
+  border: solid 1px #000;
+}
+
 footer {
   text-align: center;
-  width: 100%; /* 占滿視窗寬度 */
+  width: 100%;
   background-color: #f3efdd;
   padding: 30px;
   color: #bb9a88;
