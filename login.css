@@ -21,6 +21,8 @@ header {
   background-color: #f3efdd;
   padding: 30px;
   color: #bb9a88;
+  font-size: larger;
+  font-weight: 800;
 
   /* 使用 flexbox 讓 .left 和 .right 分開對齊 */
   display: flex;
