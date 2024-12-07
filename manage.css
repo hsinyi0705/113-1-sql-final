@@ -134,6 +134,15 @@ header .left button {
   border: solid 1px #000;
 }
 
+.user-list {
+  table-layout: fixed;
+}
+
+.user-list button {
+  display: block;
+  margin: 10px;
+}
+
 footer {
   text-align: center;
   width: 100%;
