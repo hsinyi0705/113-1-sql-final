@@ -4,9 +4,18 @@
     // 取得產品代碼
     $orderNumber = mysqli_real_escape_string($conn, $_GET['orderNumber']);
 
-    $sql = "SELECT * FROM orders WHERE orderNumber = '$orderNumber'";
+    $sql = "
+        SELECT 
+            orderdetails.orderNumber,
+            products.productCode, 
+            orderdetails.quantityOrdered, 
+            orderdetails.priceEach, 
+            orderdetails.orderLineNumber 
+        FROM orderdetails 
+        NATURAL JOIN products
+        WHERE orderdetails.orderNumber = '$orderNumber'
+    ";
     $result = mysqli_query($conn, $sql);
-    $product = mysqli_fetch_assoc($result);
 ?>
 
 
@@ -42,13 +51,15 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr> 
+                    <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($row['orderNumber']) ?></td>
+                            <td><?= htmlspecialchars($row['productCode']) ?></td>
+                            <td><?= htmlspecialchars($row['quantityOrdered']) ?></td>
+                            <td><?= htmlspecialchars($row['priceEach']) ?></td>
+                            <td><?= htmlspecialchars($row['orderLineNumber']) ?></td>
+                        </tr> 
+                    <?php endwhile; ?> 
                 </tbody>
             </table>
             

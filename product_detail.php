@@ -43,8 +43,8 @@
                             <td><?= htmlspecialchars($key) ?></td>
                             <td><?= htmlspecialchars($value) ?></td>
                         </tr>
-                        <?php endforeach; ?>
-                    </tbody>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
             
             <button onclick="window.location.href='product_manage.php';" class="back">回到產品清單</button>
