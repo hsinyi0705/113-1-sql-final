@@ -134,13 +134,20 @@ header .left button {
   border: solid 1px #000;
 }
 
+.hint-message {
+  margin-top: 50px;
+  color: red;
+  /* border: solid 1px red; */
+}
+
 .user-list {
   table-layout: fixed;
 }
 
 .user-list button {
-  display: block;
-  margin: 10px;
+  margin: auto 10px;
+  /* gap: 20px; */
+  /* border: solid 1px red; */
 }
 
 footer {

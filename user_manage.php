@@ -7,6 +7,47 @@
 
     // 執行 SQL 查詢
     $result = mysqli_query($conn, $sql);
+
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['register_account'];
+        $password = $_POST['register_password'];
+        $password_confirm = $_POST['register_password_confirm'];
+
+        if ($password !== $password_confirm) {
+            $hint = '密碼與確認密碼不相符!!!';
+        } else {
+            $query = "SELECT * FROM users WHERE username = ?"; // ? 是參數佔位符，表示將來會用變數來取代它
+            $stmt = $conn->prepare($query);
+
+            $stmt->bind_param('s', $username); // 將 $username 變數綁定到 SQL 查詢中的參數（?）。 's' 表示這是一個字串類型的參數。
+            $stmt->execute(); // 執行查詢語句
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) { // 檢查查詢結果中是否有行數（即是否有相符的帳號）
+                $hint = '帳號已存在!';
+            } else {
+                $query = "INSERT INTO users (username, password, role, created_at) VALUES (?, ?, 'user', NOW())";
+                $stmt = $conn->prepare($query);
+                
+                // 密碼加密，在資料庫中顯示亂碼
+                // $hashed_password = password_hash($password, PASSWORD_DEFAULT); 
+                // $stmt->bind_param('ss', $username, $hashed_password);
+
+                $stmt->bind_param('ss', $username, $password);
+                if ($stmt->execute()) {
+                    $hint = '新增成功！';
+                } 
+            }
+        }
+
+        // 預設為顯示所有資料
+        $sql = "SELECT id, userName, role FROM users";
+        $conditions = [];
+
+        // 執行 SQL 查詢
+        $result = mysqli_query($conn, $sql);
+    }
 ?>
 
 
@@ -32,7 +73,7 @@
                 <p class="w1">新增使用者</p>
                             
                 <label for="input_search">使用者名稱：</label><br>
-                <input type="text" name="user_Name" required><br>
+                <input type="text" name="register_account" required><br>
                 
                 <label for="input_search">角色：</label><br>
                 <select name="role">
@@ -42,10 +83,10 @@
                 </select><br>
                 
                 <label for="input_search">密碼：</label><br>
-                <input type="text" name="user_Password" required><br>
+                <input type="text" name="register_password" required><br>
 
                 <label for="input_search">確認密碼：</label><br>
-                <input type="text" name="confirm_Password" required><br>
+                <input type="text" name="register_password_confirm" required><br>
                 
                 <button type="submit">新增</button>
             </form>   
@@ -75,7 +116,10 @@
                             <td><?= htmlspecialchars($row['id']) ?></td>  <!-- KEY -->
                             <td><?= htmlspecialchars($row['userName']) ?></td>
                             <td><?= htmlspecialchars($row['role']) ?></td>
-                            <td colspan="2"><button type="submit">刪除</button></td>
+                            <td colspan="2">
+                                <button type="submit">編輯</button>  <!-- 可修改名稱、角色、密碼 -->
+                                <button type="submit">刪除</button>
+                            </td>
                         </tr>
                     <?php endwhile; ?>                  
                 </tbody>
