@@ -96,6 +96,12 @@ header .right button {
   border: solid 1px;
 }
 
+.hint-message {
+  margin-top: 50px;
+  color: red;
+  /* border: solid 1px red; */
+}
+
 footer {
   text-align: center;
   width: 100%; /* 占滿視窗寬度 */
