@@ -2,7 +2,7 @@
     require 'db.php';
 
     // 預設為顯示所有資料
-    $sql = "SELECT orderNumber, orderDate, requiredDate, shippedDate, status, comments FROM orders";
+    $sql = "SELECT orderNumber, orderDate, requiredDate, shippedDate, status, comments, customerNumber FROM orders";
     $conditions = [];
 
     // 執行 SQL 查詢
@@ -52,7 +52,7 @@
                             <td><?= htmlspecialchars($row['shippedDate']) ?></td>
                             <td><?= htmlspecialchars($row['status']) ?></td>
                             <td><?= htmlspecialchars($row['comments']) ?></td>
-                            <td></td>
+                            <td><?= htmlspecialchars($row['customerNumber']) ?></td>
                             <td><a href="order_detail.php?orderNumber=<?= urlencode($row['orderNumber']) ?>">查看詳細</a></td>
                         </tr>
                     <?php endwhile; ?>                        
