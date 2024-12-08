@@ -30,12 +30,12 @@
                     <!-- <option value="">None</option> -->
                     <option value="Total_sales">銷售總額</option>
                     <option value="Total_orders">訂單數量統計</option>
-                </select>
-                
-                <button>製作</button>
+                </select><br>
 
-                <p class="w3">報表結果</p>
+                <button type="submit">製作</button>
             </form>   
+
+            <p class="w3">報表結果</p>
         </div>
         
         <footer>@ 2024 ClassicModels. All rights reserved.</footer>
