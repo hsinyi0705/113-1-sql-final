@@ -1,7 +1,8 @@
 <?php
     $servername = "localhost";
     $username = "root";
-    $password = "o70500hy";
+    // $password = "o70500hy";
+    $password = "";
     $dbname = "classicmodels";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);

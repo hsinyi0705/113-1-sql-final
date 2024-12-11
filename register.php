@@ -22,11 +22,11 @@
                 $query = "INSERT INTO users (username, password, role, created_at) VALUES (?, ?, 'user', NOW())";
                 $stmt = $conn->prepare($query);
                 
-                // 密碼加密，在資料庫中顯示亂碼
-                // $hashed_password = password_hash($password, PASSWORD_DEFAULT); 
-                // $stmt->bind_param('ss', $username, $hashed_password);
+                // 密碼加密 (在資料庫中顯示亂碼)
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT); 
+                $stmt->bind_param('ss', $username, $hashed_password);
 
-                $stmt->bind_param('ss', $username, $password);
+                // $stmt->bind_param('ss', $username, $password);
                 if ($stmt->execute()) {
                     $hint = '註冊成功！';
                 } 
