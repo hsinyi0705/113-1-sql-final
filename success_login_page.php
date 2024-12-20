@@ -1,3 +1,17 @@
+<?php
+    session_start();
+
+    // 檢查是否登入
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit;
+    }
+
+    // 檢查是否為管理者
+    $is_admin = (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,11 +38,13 @@
             </div>
             
             <!-- 如果是管理者才顯示 -->
-            <p class="w2"></p>
-            <p class="w2">管理者功能</p>
-            <div>
-                <button onclick="window.location.href='user_manage.php';">使用者管理</button>
-            </div>
+            <?php if ($is_admin): ?>
+                <p class="w2"></p>
+                <p class="w2">管理者功能</p>
+                <div>
+                    <button onclick="window.location.href='user_manage.php';">使用者管理</button>
+                </div>
+            <?php endif; ?>
         </div>
         
         <footer>@ 2024 ClassicModels. All rights reserved.</footer>
