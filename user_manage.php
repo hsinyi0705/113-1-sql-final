@@ -13,6 +13,7 @@
         $username = $_POST['register_account'];
         $password = $_POST['register_password'];
         $password_confirm = $_POST['register_password_confirm'];
+        $role = $_POST['role'];
 
         if ($password !== $password_confirm) {
             $hint = '密碼與確認密碼不相符!!!';
@@ -27,14 +28,14 @@
             if ($result->num_rows > 0) { // 檢查查詢結果中是否有行數（即是否有相符的帳號）
                 $hint = '帳號已存在!';
             } else {
-                $query = "INSERT INTO users (username, password, role, created_at) VALUES (?, ?, 'user', NOW())";
+                $query = "INSERT INTO users (username, password, role, created_at) VALUES (?, ?, ?, NOW())";
                 $stmt = $conn->prepare($query);
                 
                 // 密碼加密，在資料庫中顯示亂碼
-                // $hashed_password = password_hash($password, PASSWORD_DEFAULT); 
-                // $stmt->bind_param('ss', $username, $hashed_password);
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT); 
+                $stmt->bind_param('sss', $username, $hashed_password, $role);
 
-                $stmt->bind_param('ss', $username, $password);
+                // $stmt->bind_param('ss', $username, $password);
                 if ($stmt->execute()) {
                     $hint = '新增成功！';
                 } 
@@ -43,7 +44,6 @@
 
         // 預設為顯示所有資料
         $sql = "SELECT id, userName, role FROM users";
-        $conditions = [];
 
         // 執行 SQL 查詢
         $result = mysqli_query($conn, $sql);
@@ -78,8 +78,8 @@
                 <label for="input_search">角色：</label><br>
                 <select name="role">
                     <!-- <option value="">None</option> -->
-                    <option value="Role_manager">管理者</option>
-                    <option value="Role_user">使用者</option>
+                    <option value="admin">管理者</option>
+                    <option value="user">使用者</option>
                 </select><br>
                 
                 <label for="input_search">密碼：</label><br>
@@ -98,6 +98,7 @@
             </div>
 
 
+            <p class="w3"></p>
             <p class="w3">使用者列表</p>
 
             <table class="user-list">
