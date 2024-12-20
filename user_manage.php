@@ -100,10 +100,10 @@
                 </select><br>
                 
                 <label for="input_search">密碼：</label><br>
-                <input type="text" name="register_password" required><br>
+                <input type="password" name="register_password" required><br>
 
                 <label for="input_search">確認密碼：</label><br>
-                <input type="text" name="register_password_confirm" required><br>
+                <input type="password" name="register_password_confirm" required><br>
                 
                 <button type="submit">新增</button>
             </form>   

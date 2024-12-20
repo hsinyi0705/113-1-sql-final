@@ -66,7 +66,7 @@
                 <input type="text" name="login_account" require><br>
                 
                 <label for="input_search">密碼：</label><br>
-                <input type="text" name="login_password" require><br>
+                <input type="password" name="login_password" require><br>
                 
                 <button type="submit">登入</button>
             </form>    
