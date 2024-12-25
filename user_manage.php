@@ -8,7 +8,7 @@
     // 執行 SQL 查詢
     $result = mysqli_query($conn, $sql);
 
-
+    // Add 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = $_POST['register_account'];
         $password = $_POST['register_password'];
@@ -49,6 +49,27 @@
         $result = mysqli_query($conn, $sql);
     }
 
+    // Edit
+    // 可修改名稱、角色、密碼
+    if (isset($_GET['edit_user_id'])) {
+        $user_id = intval($_GET['edit_user_id']); // 轉換為整數以防注入
+        // 改這裡
+        // $delete_query = "DELETE FROM users WHERE id = ?";
+        // $stmt = $conn->prepare($delete_query);
+        $stmt->bind_param('i', $user_id); // 'i' 表示整數類型參數
+
+        if ($stmt->execute()) {
+            $hint = '已更新~~~';
+        } else {
+            $hint = '更新失敗！';
+        }
+    
+        // 刷新資料列表
+        $sql = "SELECT id, userName, role FROM users";
+        $result = mysqli_query($conn, $sql);
+    }
+
+    // Delete
     if (isset($_GET['delete_user_id'])) {
         $user_id = intval($_GET['delete_user_id']); // 轉換為整數以防注入
         $delete_query = "DELETE FROM users WHERE id = ?";
@@ -56,7 +77,7 @@
         $stmt->bind_param('i', $user_id); // 'i' 表示整數類型參數
 
         if ($stmt->execute()) {
-            $hint = '使用者已刪除！';
+            $hint = '使用者已刪除~~~';
         } else {
             $hint = '刪除失敗！';
         }
@@ -121,10 +142,9 @@
             <table class="user-list">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>名稱</th>
-                        <th>角色</th>
-                        <th colspan="2">操作</th>
+                        <th>客戶名稱</th>
+                        <th>訂單數量</th>
+                        <th>銷售總額</th>
                     </tr>
                 </thead>
 
@@ -134,8 +154,15 @@
                             <td><?= htmlspecialchars($row['id']) ?></td>  <!-- KEY -->
                             <td><?= htmlspecialchars($row['userName']) ?></td>
                             <td><?= htmlspecialchars($row['role']) ?></td>
+
                             <td colspan="2">
-                                <button type="submit">編輯</button>  <!-- 可修改名稱、角色、密碼 -->
+                                <!-- <button type="submit">編輯</button>  可修改名稱、角色、密碼 -->
+                                <button>
+                                    <a href="?edit_user_id=<?= $row['id'] ?>">
+                                        編輯
+                                    </a>
+                                </button>
+
                                 <!-- <button type="submit">刪除</button> -->
                                 <button>
                                     <a href="?delete_user_id=<?= $row['id'] ?>" 
