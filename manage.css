@@ -156,6 +156,31 @@ header .left button {
   /* border: solid 1px red; */
 }
 
+/* 分頁按鈕樣式 */
+.pagination {
+  display: flex;
+  margin-top: 25px; /* 調整與表格的間距 */
+}
+
+.pagination a {
+  margin: 0 5px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  color: #333;
+}
+
+.pagination a:hover {
+  background-color: #f1f1f1;
+}
+
+.current-page {
+  font-weight: bold !important;
+  color: red !important;
+  background-color: #f1f1f1 !important; /* 當前頁碼背景 */
+  padding: 5px 10px !important;
+}
+
 footer {
   text-align: center;
   width: 100%;
