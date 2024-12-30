@@ -116,25 +116,27 @@
             </table>
 
             <!-- 分頁按鈕 -->
-            <div class="pagination">
-                <?php if ($current_page > 1): ?>
-                    <a href="?page=1">首頁</a>
-                    <a href="?page=<?= $current_page - 1 ?>">上一頁</a>
-                <?php endif; ?>
-
-                <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                    <?php if ($i == $current_page): ?>
-                        <span class="current-page"><?= $i ?></span>
-                    <?php else: ?>
-                        <a href="?page=<?= $i ?>"><?= $i ?></a>
+            <?php if (empty($conditions)): ?>
+                <div class="pagination">
+                    <?php if ($current_page > 1): ?>
+                        <a href="?page=1">首頁</a>
+                        <a href="?page=<?= $current_page - 1 ?>">上一頁</a>
                     <?php endif; ?>
-                <?php endfor; ?>
 
-                <?php if ($current_page < $total_pages): ?>
-                    <a href="?page=<?= $current_page + 1 ?>">下一頁</a>
-                    <a href="?page=<?= $total_pages ?>">最後頁</a>
-                <?php endif; ?>
-            </div>
+                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                        <?php if ($i == $current_page): ?>
+                            <span class="current-page"><?= $i ?></span>
+                        <?php else: ?>
+                            <a href="?page=<?= $i ?>"><?= $i ?></a>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+
+                    <?php if ($current_page < $total_pages): ?>
+                        <a href="?page=<?= $current_page + 1 ?>">下一頁</a>
+                        <a href="?page=<?= $total_pages ?>">最後頁</a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
         
         <footer>@ 2024 ClassicModels. All rights reserved.</footer>

@@ -135,7 +135,7 @@
                             <td><?= htmlspecialchars($row['userName']) ?></td>
                             <td><?= htmlspecialchars($row['role']) ?></td>
                             <td colspan="2">
-                                <button type="submit">編輯</button>  <!-- 可修改名稱、角色、密碼 -->
+                                <!-- <button type="submit">編輯</button>  可修改名稱、角色、密碼 -->
                                 <!-- <button type="submit">刪除</button> -->
                                 <button>
                                     <a href="?delete_user_id=<?= $row['id'] ?>" 
